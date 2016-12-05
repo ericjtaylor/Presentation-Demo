@@ -1,0 +1,38 @@
+---
+title: "R Markdown Presentation with Plotly"
+author: "Eric Taylor"
+date: "December 4, 2016"
+output: ioslides_presentation
+---
+
+## Using Plotly
+
+Personally I think it's pretty cool that plotly has a function *ggplotly()* that will let you simply pass it a ggplot object. I like to do this with '*%>%*' (piping). Here is my simple example:
+
+```{r, eval=FALSE}
+library(plotly)
+library(ggplot2)
+library(dplyr)
+
+(   ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl)))
+    + geom_point()
+    + labs(title = "mtcars")
+    + labs(colour = "cylinders")
+) %>% ggplotly()
+```
+
+## Plotly Demonstration
+
+```{r, message=FALSE, echo=FALSE}
+library(plotly)
+library(ggplot2)
+library(dplyr)
+
+(   ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl)))
+    + geom_point()
+    + labs(title = "mtcars")
+    + labs(colour = "cylinders")
+) %>% ggplotly()
+```
+
+## Thank You!
